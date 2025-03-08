@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsMentor - Authentication</title>
+    <link rel="stylesheet" href="/auth.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container" id="loginForm">
+            <h2>Welcome Back</h2>
+            <form onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember Me</label>
+                </div>
+                <div class="form-group">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <p class="switch-form">
+                    Don't have an account? <a href="#" onclick="toggleForm('signup')">Sign Up</a>
+                </p>
+            </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container hidden" id="signupForm">
+            <h2>Create Account</h2>
+            <form onsubmit="return handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="userRole">I am a</label>
+                    <select id="userRole" onchange="handleRoleChange()" required>
+                        <option value="">Select Role</option>
+                        <option value="athlete">Athlete</option>
+                        <option value="mentor">Mentor</option>
+                        <option value="sponsor">Sponsor</option>
+                    </select>
+                </div>
+                
+                <!-- Conditional Fields -->
+                <div class="form-group hidden" id="sportsCategory">
+                    <label for="sport">Sports Category</label>
+                    <select id="sport" required>
+                        <option value="">Select Sport</option>
+                        <option value="basketball">Basketball</option>
+                        <option value="soccer">Soccer</option>
+                        <option value="tennis">Tennis</option>
+                        <option value="swimming">Swimming</option>
+                        <option value="athletics">Athletics</option>
+                    </select>
+                </div>
+                
+                <div class="form-group hidden" id="experienceLevel">
+                    <label for="experience">Experience Level</label>
+                    <select id="experience" required>
+                        <option value="">Select Experience</option>
+                        <option value="5-10">5-10 years</option>
+                        <option value="10-15">10-15 years</option>
+                        <option value="15+">15+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group hidden" id="companyDetails">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName">
+                </div>
+
+                <button type="submit" class="btn-primary">Sign Up</button>
+                <p class="switch-form">
+                    Already have an account? <a href="#" onclick="toggleForm('login')">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="/auth.js"></script>
+</body>
+</html>
